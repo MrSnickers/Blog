@@ -1,3 +1,18 @@
+November 11 2013
+
+This post is in response to the post on optimism by Mr. R. S. Braythwayt, esq. found at http://braythwayt.com/homoiconic/2009/05/01/optimism.html
+
+I usually get fairly tense reading posts that discuss psychology research.  I sort of scootch over to the side of my chair.  Perhaps I am concerned that I might pull an extraocular muscle from the imminent eye rolling once the results from one unimportant but highly quotable study gets generalized into a global statement about why we do everything that we do.
+
+Fortunately, my anxiety was not founded.  The writing itself refreshingly avoided becoming maudlin, and Mr. Braythwayt comes across as being a pragmatic gentleman.  Since he chose to keep his message clear in order to make it more actionable, it's good that he took a while getting to the punchline and invited the reader to attempt a prediction concerning optimistic behavior.  Going straight to the message that most folks over value negative experiences and do not put as much emphasis on the things that go right would have ended up just being a recitation from the Journal of Things We Already Know.
+
+But just because we already know something doesn't mean it isn't important.
+
+A week ago I attended the Bris of my friend's baby.  This came after weeks of a complicated pregnancy in which the life of both the mother and son had been imperiled.  During the ceremony, the cantor asked that the attendees make a point of continuing to work as hard to make time to observe happy occasions as sad ones.  In the case of a funeral, it seems important enough to leave work and pay for a ticket to attend in person, but attending a wedding or visiting a new baby does not.  Leaving a blog comment because someone is wrong on the Internet seems worth populating a text field, when having an equally strong, but positive opinion does not.  This is why so much of the Internet is a bad neighborhood.
+
+
+
+
 November 2 2013
 
 Had a dream last night in which I was taking a quiz on the topic of git.  I remember that the correct answer was "d.  Commit early and often."
@@ -8,7 +23,7 @@ October 31 2013
 More MySQL commands
 
 SELECT movies.title genres.name FROM movies INNER JOIN genres ON movies.genre_id = genres.id;
-** why this repeatedly didn't work. In consistancies between pluralization.  In the future avoid sets of variables that are the same word both in sigular and in plural.
+** why this repeatedly didn't work. Inconsistencies between pluralization.  In the future avoid sets of variables that are the same word both in singular and in plural.
 
 SELECT movies.title, genres.name FROM movies LEFT OUTER JOIN genres ON movies.genre_id = genres.id;
 
@@ -61,7 +76,7 @@ The whole conversation about what "element" is and why it doesn't need to be dec
 
 October 22 2013
 
-Today was a plain text kind of day.  It just seemed to turn out that way.  Along with the general workshop on Git I also learned such fantastic things as how to scoot around in the terminal while keeping my mouse in my bag.  Splat+Tab is a good friend and is by far the best way to switch between Sublime and the terminal while I try check my work on the Ruby Assesment.
+Today was a plain text kind of day.  It just seemed to turn out that way.  Along with the general workshop on Git I also learned such fantastic things as how to scoot around in the terminal while keeping my mouse in my bag.  Splat+Tab is a good friend and is by far the best way to switch between Sublime and the terminal while I try check my work on the Ruby Assessment.
 
 
 October 21 2013
