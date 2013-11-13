@@ -1,3 +1,9 @@
+November 12 2013
+
+There is a sinking feeling one gets when having just altered one's bash profile all that gets returned is "not a valid identifier."  That's pretty discouraging.  Also, it turns out that it is a fairly unproductive error message to cut and paste into Internet search.  Much of the results I got when searching with the exact error message were over six years old.
+
+In order to resolve the error I had to remove all the white space from the export PATH that I had recently put in there in order to make it more readable.  More readable for me, but apparently unreadable to the machine.  I guess I had been taking for granted the human friendly characteristics of Ruby.
+
 November 11 2013
 
 This post is in response to the post on optimism by Mr. R. S. Braythwayt, esq. found at http://braythwayt.com/homoiconic/2009/05/01/optimism.html
