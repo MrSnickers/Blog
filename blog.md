@@ -1,45 +1,74 @@
+November 17 2013
+
+There seems to be some logical fallacies comparing iteration in ruby structured as:
+
+    3.times do |x|
+    (x+1)*5
+    end
+
+with the alleged JavaScript equivalent:
+
+    for (var i = 1, i < 4, i++) {
+    console.log( (i+1)*5);
+    }
+
+even though they will print the same output.
+
+3.times is often used as an example of how writing ruby is like talking to your new best friend, and is a little bit of hyperbole picked up from the remarkable work "why's poignant guide to ruby."  However, there is very little heavy lifting that is going to be accomplished with this picturesque little construct.  A more direct equivalent to the previous JavaScript block is the Ruby block:
+
+    x =1
+    while x<4
+    (x+1)*5
+    x += 1
+    end
+
+as both blocks can be modified in the same important ways that make them common features in practical code.
+
+One major advantage that Ruby has as a starter programming language is that the reduced amount of punctuation means that one's dumb beginner mistakes are more likely centered around flawed logic than an Easter egg hunt for a missing semi-colon.
+
+
 November 14 2013
 
 The approach that I took to solving FizzBuzz was to base it on a "while" loop and to assess the remainder of each increment when divided by 3, 5, and both 3 and 5.  This required three checks and three "puts" statements, and was pretty straight forward if not all that clever.
 
 The solution looked like this:
 
-i=0
-while i <= 100
-  if i%3 == 0 && i%5 == 0
-    puts "fizzbuzz"
-    i +=1
-elsif i%3 == 0
-    puts "fizz"
-    i +=1
-elsif i%5 == 0
-    puts "buzz"
-    i +=1
-  else
-    puts "#{i}"
-    i +=1
-  end
-end
+      i=0
+      while i <= 100
+        if i%3 == 0 && i%5 == 0
+          puts "fizzbuzz"
+          i +=1
+      elsif i%3 == 0
+          puts "fizz"
+          i +=1
+      elsif i%5 == 0
+          puts "buzz"
+          i +=1
+        else
+          puts "#{i}"
+          i +=1
+        end
+      end 
 
 The online alternative I liked the most made use of shoveling into an array to create the word FizzBuzz.  By conjoining the output of divisibility by 3 and divisibility by 5 "FizzBuzz" was not treated as a seperate word, and I found that interesting. 
 
-def fizz_buzz(max)
-  arr = []
-  (1..max).each do |n|
-    text = ""
-    if (n % 3 == 0)
-      text << "Fizz"
-    end
-    if (n % 5 == 0)
-      text << "Buzz"
-    end
-    if !((n % 3 == 0) || (n % 5 == 0))
-      text = n
-    end
-    arr << text
-  end
-  return arr
-end 
+    def fizz_buzz(max)
+      arr = []
+      (1..max).each do |n|
+        text = ""
+        if (n % 3 == 0)
+          text << "Fizz"
+        end
+        if (n % 5 == 0)
+          text << "Buzz"
+        end
+        if !((n % 3 == 0) || (n % 5 == 0))
+          text = n
+        end
+        arr << text
+      end
+      return arr
+    end 
 
 
 
