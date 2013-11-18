@@ -1,8 +1,54 @@
+November 14 2013
+
+The approach that I took to solving FizzBuzz was to base it on a "while" loop and to assess the remainder of each increment when divided by 3, 5, and both 3 and 5.  This required three checks and three "puts" statements, and was pretty straight forward if not all that clever.
+
+The solution looked like this:
+
+i=0
+while i <= 100
+  if i%3 == 0 && i%5 == 0
+    puts "fizzbuzz"
+    i +=1
+elsif i%3 == 0
+    puts "fizz"
+    i +=1
+elsif i%5 == 0
+    puts "buzz"
+    i +=1
+  else
+    puts "#{i}"
+    i +=1
+  end
+end
+
+The online alternative I liked the most made use of shoveling into an array to create the word FizzBuzz.  By conjoining the output of divisibility by 3 and divisibility by 5 "FizzBuzz" was not treated as a seperate word, and I found that interesting. 
+
+def fizz_buzz(max)
+  arr = []
+  (1..max).each do |n|
+    text = ""
+    if (n % 3 == 0)
+      text << "Fizz"
+    end
+    if (n % 5 == 0)
+      text << "Buzz"
+    end
+    if !((n % 3 == 0) || (n % 5 == 0))
+      text = n
+    end
+    arr << text
+  end
+  return arr
+end 
+
+
+
 November 12 2013
 
 There is a sinking feeling one gets when having just altered one's bash profile all that gets returned is "not a valid identifier."  That's pretty discouraging.  Also, it turns out that it is a fairly unproductive error message to cut and paste into Internet search.  Much of the results I got when searching with the exact error message were over six years old.
 
 In order to resolve the error I had to remove all the white space from the export PATH that I had recently put in there in order to make it more readable.  More readable for me, but apparently unreadable to the machine.  I guess I had been taking for granted the human friendly characteristics of Ruby.
+
 
 November 11 2013
 
@@ -15,8 +61,6 @@ Fortunately, my anxiety was not founded.  The writing itself refreshingly avoide
 But just because we already know something doesn't mean it isn't important.
 
 A week ago I attended the Bris of my friend's baby.  This came after weeks of a complicated pregnancy in which the life of both the mother and son had been imperiled.  During the ceremony, the cantor asked that the attendees make a point of continuing to work as hard to make time to observe happy occasions as sad ones.  In the case of a funeral, it seems important enough to leave work and pay for a ticket to attend in person, but attending a wedding or visiting a new baby does not.  Leaving a blog comment because someone is wrong on the Internet seems worth populating a text field, when having an equally strong, but positive opinion does not.  This is why so much of the Internet is a bad neighborhood.
-
-
 
 
 November 2 2013
