@@ -1,3 +1,22 @@
+November 18 2013
+
+
+Variables in a block are like fish in a fishbowl.
+
+
+        ============
+         /                         \
+        {                             }
+      |                                |
+    (         ( ''      '   ,             )
+      |       '')      '<><         |
+        \    (             '          /
+          --------------
+            ______________
+
+
+
+
 November 17 2013
 
 There seems to be some logical fallacies comparing iteration in ruby structured as:
