@@ -3,19 +3,7 @@ November 18 2013
 
 Variables in a block are like fish in a fishbowl.
 
-'''''
-
-       ==========
-       /           \
-      {                }
-     |                 |
-    (      ( ''     '  ,     )
-     |       '')      '<><    |
-      \    (            '       /
-        -------------
-          ____________
-
-''''
+I made some ascii art to demonstrate this, but it got warped beyond recognition by Github.
 
 
 November 17 2013
