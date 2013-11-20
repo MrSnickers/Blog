@@ -1,3 +1,14 @@
+November 19 2013
+
+Why documentation should be sold
+
+I met this nice woman a bit of a while ago who had a traveling road show that went to schools and ran surprisingly non-hokey workshops that got kids excited about achieving their dreams.  She seemed semi-apologetic that her business wasn't a non-profit but instead the way she paid her rent.  We're highly conditioned to think that pro-social activities should be free and untainted by anything so crass as folks paying rent, but it really spoke well of her workshops that schools were willing to shell out so that their students could have what they thought was a valuable experience.  I'm pretty sure that, since I didn't play sports, my public high school in suburban California payed as little as possible to process me.  I remember presentations from the utilities district and the local wild-life rehabilitation center (Don't steal owls from the wild, folks.  They're no good as pets, and it's terrible for the owls.)  I feel confident they didn't charge the school money.
+
+However, there is a pressure to someone selling a product to make it worth the price.  Which is what brings us to documentation.  It is horrible.  Although I am not obligated to pay a price to get it, it has a very real cost in time and aggravation since it is written either by a program or volunteers who can't go to sleep at night because someone on the Internet is wrong.  The 99 cent app I bought so I can keep a virtual aquarium on my iPhone, has more expectation to deliver its product of fishy relaxation than the gold standard of ruby knowledge has to actually answer my questions.
+
+Developers, even junior developers, get paid a lot so providing documentation that actually saves time by answering questions easily would be worth a lot.
+
+
 November 18 2013
 
 
