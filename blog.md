@@ -1,3 +1,12 @@
+November 20 2013
+
+The Single Responsiblity Principle of Classes
+
+This post is in response to the Designing Classes chapter of Practical Object-Oriented Design in Ruby by Sandi Metz
+
+Boy Howdy, is this a quotable chapter.  Not maybe stuffed with the most helpful examples, but the concept of single responsibility in Classes is pretty interesting.   It reminds me of the "Job to be done" concept of Christiansen's.  If your class seems to be doing more than would be expected with a single job description, it's probably stepping on toes.
+
+
 November 19 2013
 
 Why documentation should be sold
