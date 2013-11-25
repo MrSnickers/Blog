@@ -1,6 +1,16 @@
+November 24 2013
+
+Start from Impossible
+
+There is a phenomenon that I have heard called parking lot science.  The term comes from a shaggy dog style joke about this guy who is searching for his car keys, not where he most likely to have lost them but in the parking lot where the light is better.
+Research gets called "parking lot science" when the questions asked are not particularly interesting or effective, but the techniques used are easy or well-known.  The desire to search around in the parking lot can be caused by knowing your field enough to know what is easier or possible.
+The encouragement "start from impossible" seems like it is meant to avoid this particular phenomenon and is a rebranding of the much older concept of beginner's mind.  A mind that maintains the openness that it has as a beginner does not bother itself with degrees of possibility, as everything seems equally possible.
+Personally, I find myself doing parking lot testing.  I know how to test for equivalency and data type, and so far almost all my tests have been of that type, whether that is the best way to test my program or not.  Usually, I find myself doing it because I feel a time crunch, and I know that if I have to learn to test for error messages or how to use stubs, this is going to take much longer than I want.  Beginner's mind just assumes the need to learn constantly and does not prejudge against what would take longer or be easier.
+
+
 November 20 2013
 
-The Single Responsiblity Principle of Classes
+The Single Responsibility Principle of Classes
 
 This post is in response to the Designing Classes chapter of Practical Object-Oriented Design in Ruby by Sandi Metz
 
