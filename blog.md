@@ -1,3 +1,15 @@
+November 26 2013
+
+This is a post about the value of doing nothing.  While reading Sandi Metz's book about program design I have been intrigued by how often she recommends not making a decision and waiting until the point that the flaws in your program design bite you in the butt.  This doesn't seem like advice one would expect from a book about project design advocating that you, y'know, not design.
+Here's what makes it interesting: It is most likely the best choice to sit in stinky code than clean it up even if it bites you more often than not.  Here's the math I did while smooshed in a commuter train.
+
+Let's say that you optimize classes for one hour every time the chance comes up because it takes two hours to fix stinky code.  In the case that half the classes stink this is a wash.  For eight classes, assuming that your optimization is right every time, you invest eight hours of work to save eight hours of work.
+
+What this doesn't take into account, though, is that optimizing too early means that some of the time your code will get stinky anyhow so optimizing for eight hours to avoid eight hours of work costs more because it is unlikely that you will avoid all future stink.  However, waiting allows you to identify what will need fixing and allow you to only spend time optimizing the code that needs it.
+
+So ultimately you can do less by doing less.
+
+
 November 24 2013
 
 Start from Impossible
