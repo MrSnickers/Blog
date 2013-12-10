@@ -1,3 +1,34 @@
+Dec 9 2013
+
+This post is in response to the Medium article "Things I Wish Someone Had Told Me When I Was Learning How to Code" by Cecily Carver.  I found her post to be enjoyably humane and to posess a good prespective.  Sadly, I expect that this article will fall under the genre of "things that people with similar experience will agree with and those without will find cliche."
+Cliches get worn out for a reason though.
+I though one of her most actionable points was that before starting a major project like learning a progammin language it is best to know why you are doing so.  This ties in with her later point that someone will always be willing to tell you that you are wrong.  With all the available paths that can take you to the end point of learning to code, it is easy to interperate opinion on how to get there as fact, and to get discouraged.  However, if your goal is highly specific, such as writing a native iOS app so a local museum can lend out an iPad for an interactive guide, or to make new business contacts by contributing to a specific PHP repository, there is less latitude for both Internet trolls and yourself to wonder if you are doing it all wrong.
+
+
+Dec 4 2013
+Mice are nice.
+
+They look like little fat people in fur coats and have tiny pink hands, so mice are pretty great.
+What they are not hugely efficient at is running actual mazes, no matter what the cartoons shown on Saturday Morning might tell you.
+Thus, deciding to build a maze solver emulating mouse behavior maybe isn't the fastest way to win at mazes, but seems like an interesting thought experement that I can really get into, since as I mentioned, I love mice.
+
+One of the current projects that I am working on is coding a program that will solve a text maze that looks like this.
+
+###########
+#         #
+# ##### # #
+    #   # #
+### # ### #
+#     #   #
+# # ### ###
+# #   #    
+# ### # # #
+#     #   #
+###########
+
+First off, this is an interesting project from the point of view of test driven design, since the way the instructions are written it leaves it up to me to decide what it means to solve a maze.  I could have taken it in the direction of locating the index of the exit, which would have been fairly straight forward
+
+
 November 26 2013
 
 This is a post about the value of doing nothing.  While reading Sandi Metz's book about program design I have been intrigued by how often she recommends not making a decision and waiting until the point that the flaws in your program design bite you in the butt.  This doesn't seem like advice one would expect from a book about project design advocating that you, y'know, not design.
