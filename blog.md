@@ -1,3 +1,11 @@
+Dec 30 2013
+
+http://sewingandembroiderywarehouse.com/embtrb.htm is a truly spectacular site.  I recommend checking it out and using developer tools to take a peek.
+It seems to have been written in early 1997, as it states in the Doctype that it is done in HTML 3.2, a version that had a fairly short lifespan.  It's surprising however that someone who would bother even having a complete Doctype would make such a obviously bizarre website.  Especially about something as detail oriented as trouble shooting embroidery machines.
+The reason the web page starts to shout at the bottom is due to the amazing network of nested h3 tags.  I don't know if viewed with a contemporary browser that it was so off-the wall, but it would seem that modern browsers render nested header tags as progressively larger as they are ostensibly meant to be even more emphasized than their preceding elements.
+The in-line duplication is also magnificent.  Instead of specifying in the body element or in a separate CSS document that all text should be in Ariel it is stated in front of each and every element.  This seems like a web page made largely by the efforts of cut-and-paste.
+
+
 Dec 26 2013
 
 Over the break I made use of a few implementations of databases. They were all very similar in that they were all based on SQLite3.  Although they had the same database under the hood, to belabor a metaphor a bit much, they all drove a little differently.
@@ -42,7 +50,11 @@ gift_id | gift    | cost  | child_id
 etc.
 
 
+Dec 13 2013
 
+So far, I've been quite taken with Sandi Metz's analysis that in some cases you end up having to do less work in the long-term if you do less work in the short-term, and since I have the personality type that does distance running and gets advanced degrees I am trying to fit that concept into my personal world view.
+I've come to quite enjoy test driven development, which is very much predicated on the idea of more work at the front of a project saving work near the end, so I have taken a minute to synthesize these two directives. The reason that writing tests in the beginning of a project saves time is that a test does not change in what you want it to do. You want it to pass. It can change in how you want it to do that, which is why it is good practice to write the expected outcome description of your tests without stating all the steps used to get there. The steps taken inside your method might change, but it is unlikely that the expected outcome is going to.
+However, what you want a class to do might change a lot during the life cycle of your program.  Both how you want it to go about doing its job as well as what its job is ultimately, and since you are always working with incomplete information regarding your classes it is best to not overbuild.
 
 
 Dec 9 2013
