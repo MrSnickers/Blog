@@ -1,8 +1,55 @@
+Dec 26 2013
+
+Over the break I made use of a few implementations of databases. They were all very similar in that they were all based on SQLite3.  Although they had the same database under the hood, to belabor a metaphor a bit much, they all drove a little differently.
+The two most similar gems were Active Record and Sequel. They both make use of migrations, which is a bit like a version control system for databases. Setting up a database in either system requires a specific folder and special instructional files that read much like SQL. Although this requires more familiarity with SQL- a language few have accused of being user friendly- it does make it much easier to determine what has gone wrong when there is a database-related error.
+Data mapper on the other hand, makes a lot more use of Ruby Magic and although it has many comfortable Ruby conventions such as specifying a class's data inside the class description itself, when things are not running smoothly that much abstraction makes it harder to diagnose why.
+
+
+Dec 16 2013
+A sub-standard SQL database
+
+Let's say you are an overly enthusiastic aunt or uncle to some kids and that you are perhaps concerned that you might not be distributing gifts equitably so you whip up a spreadsheet.  It might look something like this:
+
+name    |Gifts
+----------------------------------------------------------------------
+Billie | Lego, Beanbag chair (blue), those clear plastic tubes for hamsters
+----------------------------------------------------------------------
+Suzy  | ride-atop-triceratops, cheese-making kit, Lego, Viking helmet
+----------------------------------------------------------------------
+Timmy | Gender-neutral Veterinarian playset, Lego, Beanbag chair (green)
+----------------------------------------------------------------------
+
+For a quick trip to the store this might suffice, but if you are overly invested in your avuncular duties and need to maintain this list from before Halloween until the big day it's not very maintainable.
+Let's say you have a sinking feeling the Lego distribution is inequitable.  This sort of list doesn't let you easily sort by gift type.  Or if your sibling's progeny are savvy about the price of things, they might notice that ride-atop-dinos are seldom just handed out for free and represent a much greater investment than a bunch of plastic tubes.  It would be hard to sum across a linear sheet the way that it is set up now. Lastly, if your partner perhaps wanted to help out with the project so you both could stay home drinking hot chocolate instead of braving the hyperventilating isles of TotLand on a Saturday night, it would be hard to integrate lists.
+
+A more scalable solution would be to have multiple lists with relationships.
+Each child could have a designation like so:
+
+child_id | child
+----------------
+1         |Billie
+-----------------
+2         |Suzy
+----------------
+3         |Timmy
+
+with the gifts in their own list related to child:
+
+gift_id | gift    | cost  | child_id
+------------------------------------
+1        | cheese making kit | 25  |2
+
+etc.
+
+
+
+
+
 Dec 9 2013
 
-This post is in response to the Medium article "Things I Wish Someone Had Told Me When I Was Learning How to Code" by Cecily Carver.  I found her post to be enjoyably humane and to posess a good prespective.  Sadly, I expect that this article will fall under the genre of "things that people with similar experience will agree with and those without will find cliche."
+This post is in response to the Medium article "Things I Wish Someone Had Told Me When I Was Learning How to Code" by Cecily Carver.  I found her post to be enjoyably humane and to possess a good perspective.  Sadly, I expect that this article will fall under the genre of "things that people with similar experience will agree with and those without will find cliche."
 Cliches get worn out for a reason though.
-I though one of her most actionable points was that before starting a major project like learning a progammin language it is best to know why you are doing so.  This ties in with her later point that someone will always be willing to tell you that you are wrong.  With all the available paths that can take you to the end point of learning to code, it is easy to interperate opinion on how to get there as fact, and to get discouraged.  However, if your goal is highly specific, such as writing a native iOS app so a local museum can lend out an iPad for an interactive guide, or to make new business contacts by contributing to a specific PHP repository, there is less latitude for both Internet trolls and yourself to wonder if you are doing it all wrong.
+I though one of her most actionable points was that before starting a major project like learning a programming language it is best to know why you are doing so.  This ties in with her later point that someone will always be willing to tell you that you are wrong.  With all the available paths that can take you to the end point of learning to code, it is easy to interpret opinion on how to get there as fact, and to get discouraged.  However, if your goal is highly specific, such as writing a native iOS app so a local museum can lend out an iPad for an interactive guide, or to make new business contacts by contributing to a specific PHP repository, there is less latitude for both Internet trolls and yourself to wonder if you are doing it all wrong.
 
 
 Dec 4 2013
@@ -10,7 +57,7 @@ Mice are nice.
 
 They look like little fat people in fur coats and have tiny pink hands, so mice are pretty great.
 What they are not hugely efficient at is running actual mazes, no matter what the cartoons shown on Saturday Morning might tell you.
-Thus, deciding to build a maze solver emulating mouse behavior maybe isn't the fastest way to win at mazes, but seems like an interesting thought experement that I can really get into, since as I mentioned, I love mice.
+Thus, deciding to build a maze solver emulating mouse behavior maybe isn't the fastest way to win at mazes, but seems like an interesting thought experiment that I can really get into, since as I mentioned, I love mice.
 
 One of the current projects that I am working on is coding a program that will solve a text maze that looks like this.
 
