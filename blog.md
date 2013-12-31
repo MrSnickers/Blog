@@ -1,14 +1,12 @@
 Jan 1 2014
 
-The Internet is "funny"
-
 If there are two things that get posted on the Internet it is opinions about programming and sarcasm.
 
 Often posts are both.
 
-The recent Medium article by Jenn Schiffer about "Two-factor In-Browser CSS Preprocessing" mimics a tips and tricks article that suggests along with CSS preprocessing adding a second in-line styling to the body as a "fall back" the joke here is that whatever is closer to the code gets implemented so that the fall-back over rides everything else.  This is obsfucated with a slew of current buzzwords to dress it up like a good idea.
+The recent Medium article by Jenn Schiffer concerning "Two-factor In-Browser CSS Preprocessing" mimics a tips and tricks article.  In it she suggests authors include along with CSS preprocessing a second in-line styling to the body as a fall-back.  The joke here is that whatever is closer to the code gets implemented, so that the fall-back will always override everything else.  This is obfuscated by a slew of current buzzwords to dress it up like a good idea.
 
-This is similar to the @horse_css joke about the package manager "rm -rf home."
+This is similar to the @horse_css joke about using the package manager "rm -rf home."
 
 
 Dec 31 2013
