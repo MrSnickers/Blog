@@ -1,3 +1,27 @@
+Jan 1 2014
+
+The Internet is "funny"
+
+If there are two things that get posted on the Internet it is opinions about programming and sarcasm.
+
+Often posts are both.
+
+The recent Medium article by Jenn Schiffer about "Two-factor In-Browser CSS Preprocessing" mimics a tips and tricks article that suggests along with CSS preprocessing adding a second in-line styling to the body as a "fall back" the joke here is that whatever is closer to the code gets implemented so that the fall-back over rides everything else.  This is obsfucated with a slew of current buzzwords to dress it up like a good idea.
+
+This is similar to the @horse_css joke about the package manager "rm -rf home."
+
+
+Dec 31 2013
+
+In biology, plants evolve defenses against the bugs that eat them, then bugs evolve the ability to eat these harder-to-eat plants until the cycle reaches some pretty amazing extremes. This sort of feedback loop has also been in play in the development of HTML elements and those who would like to either make use or take advantage of them.
+
+If you want to take a straight ahead interpretation of the establishing chapter of Mark Pilgrim's book "Dive into HTML 5" it would seem that many of the basic HTML elements were mostly just agreed upon by the members of a large email correspondence. Even if you think that seems a little simplified, it is certainly the case that elements become standard because they are useful and that browsers will adapt to respond to these tags to better display content.  Already, we are describing the first of a number of interlocking adaptive relationships that between browser developers and web page authors.
+
+When the development of the Internet was still bathed in the light of amber CRT screens, the most compelling reason to apply an HTML tag on a piece of content that it did not accurately describe was formatting.  See also the rampant abuse of tables for spacing purposes. Soon though, browsers evolved the ability to glean and record data about web pages, and how web pages relate to each other to make it easier for users to navigate the web.  There were some interesting categorization efforts made my AOL and Yahoo! that are worth their own blog post, but the point of this story is that when the network got far too large for one metaphorical shelf Larry Page of Google fame developed his self-titled ranking system that treated the content on the web like a bucket of stuff.  A bucket of Internet that, as the name implies, had the particular quality of being networked. The general reasoning behind the Page Rank algorithm is that the most important web content is that which is regarded authoritative by its peers. In this case, he used the HTML element of a hypertext link as a stand in for a vote of confidence to the importance of another web page.  The more links to a web page from another well-linked page, the more likely it was of good quality.
+This has led to interesting uses and abuses of the humble href.  One story recently in the news is the scandal of Rap Genius who were attempting to farm links from bloggers.  They requested that bloggers spam links to their site in return for favors in an attempt to stuff the virtual ballot box and drive their site higher in the ranking algorithm.
+Another interesting adaptation taken on by authors is the "nofollow" attribute.  It has been taken up by authors that want to refer to a source without providing the web site the benefit of increased significance on the Web.  "nofollow" is a signal to web crawlers to discount a link in the Internet popularity contest.  For example, it could even be used by reporters who want to refer to the site Rap Genius without incidentally providing the same linking services the company was attempting to solicit.
+
+
 Dec 30 2013
 
 http://sewingandembroiderywarehouse.com/embtrb.htm is a truly spectacular site.  I recommend checking it out and using developer tools to take a peek.
