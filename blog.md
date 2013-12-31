@@ -1,3 +1,11 @@
+Jan 1b 2014
+
+Let's build a button.
+
+You can make a whole bunch of things with a box-shadow.  Today, we learned about quite a few of them.
+For practice we created a button entirely in CSS from an anchor element in HTML.  An impressive amount of this glossy button can be done all with one box-shadow element.  A multiple border effect can be achieved by using a number of box shadows and even a linear gradient can be replaced by an internal box shadow.  Using a negative value in a box shadow to replace a gradient provides an appealing curvature that makes the button look very glossy.
+
+
 Jan 1 2014
 
 If there are two things that get posted on the Internet it is opinions about programming and sarcasm.
