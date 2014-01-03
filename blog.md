@@ -1,3 +1,8 @@
+Jan 3 2014
+
+Box-sizing is like packing items to ship.  It's possible to post that a shippable item is so many inches wide, but then when it's all packed up bam!  it won't fit in your mailbox anymore.  If it is of higher priority you can call box-sizing on it call it border-box and then it's the size of the shipping box that takes highest priority and your ordered item is going to get variably squished on its way to you.
+
+
 Jan 1b 2014
 
 Let's build a button.
