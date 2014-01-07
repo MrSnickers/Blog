@@ -1,3 +1,93 @@
+Jan 6 2014
+
+Starting a Rails app is very similar to when I got my first apartment by myself and ended up inheriting two or three apartment's worth of stuff from the auntie network. There too it involved me going through a whole passel of stuff to find the four or five things that I would use every day.
+When you are setting up your first kitchen with vague intentions of using it for making more elaborate meals than eating veggie dogs out of the package garnished with yellow mustard packets picked up at the hospital cafeteria, it is hard to know what you are going to need to be more accessible: the salad spinner or the one egg size frying pan. In the same way, it takes a while of hunting around in the freshly minted and voluminous Rails file structure to determine that routes.rb and somethingsomethingcontroller.rb are going to be your best friends and most of the other files are going to very much be a special occasion thing.
+
+Jan 3 2014
+
+Refactor Friday
+
+<p> I went back to refactor one of the earliest homework assignments that we were given at the Flatiron School, which is the Number Guesser. Although it was all on one page and the tests totally didn't pass, I wasn't too displeased with how it has aged. Hardly fine wine, but at least not compost either.
+
+I ended up with a very long commit history that I tried to make into the general outline of my blogpost.</p>
+
+<code>My terrible attempt at refactoring.</code>
+<p>On my first and unpublished attempt I tried to fix everything at once. I got halfway through moving the model into a class and expanding much of the functionality before totally losing track of where I was. Seriously kids don't apply functionality without a test.
+My second and successful attempt used much more involved note taking and testing of each new feature.</p>
+
+<code>rspec now running</code>
+<p>First I made sure that the original basic tests ran on the new model I had made.  Well, I mean first I made sure they didn't run, but that they later did, and anyways you know how it works.</p>
+
+<code>moved rspec helper code into .rspec file.</code>
+<p>This was also a good opportunity for me to take the time to clear up some loose ends from over a month ago such as making a .rspec file and properly applying stubbing.</p>
+
+<code>decided that all screen printing work belonged in app.</code>
+<p>My initial impulse was to move _every thing_ into the class.  Then I decided that with the extremly limited degree to which I could honor the concept of MVC in such a limited app that it was not the right move to have the class Numberguesser know anything about the screen.</p>
+<img src="http://www.peepresearch.org/surgery/materials.jpg">
+<p> This reminded me of the seperation of conjoined twins.</p>
+
+<code>moved input and standard comparison into class. Left reporting responsibilites in the app.
+Added new syntax to app in order to obtain, evaluate, and report on guess.</code>
+<p>All these commits have to do with pulling apart the screen printing functionality from the knowing about number equivalency.</p>
+
+<code>Radically shortened check_guess by relying on Ruby's logic processing and returns.</code>
+<p> This is my favorite trick this week of shortening a method that checks for equivalency</p>
+'''ruby
+
+-        if @input == @standard
+ -           true
+ -      else
+ -           false
+ -      end
+
+ @input == @standard
+
+ '''
+
+<code>Had to unchain method calls as .guess returns a string.</code>
+Whaaaat?!  The "s" in gets means string.  ^%$#!!!
+
+<code>realized that gets converts input into string. Included to_i to counter that and a validity check to recognize post to_i strings.</code>
+
+<code>Changed method name to refelct true false response.</code>
+One of the few teachable moments here.  Having explicit names that both indicate the work it does as well as the return it gives makes for friendlier code.
+
+Noticed that response was missing the interpolated value when I ran the program. Added it back in.
+
+<code>Added tests to methods</code>
+MOAR TESTS!!!
+
+
+<code>Got up to get a cup of tea. Thought of more features. Didn't yet decide if they were app or class features.</code>
+Proud of myself that I resisted dropping in three half-baked def's.  Wrote notes to myself that I wanted to get back to making these.
+
+<code>Added loop to allow repeated guesses.
+can end the game with exit.</code>
+
+<code>added exit test and higher/lower functionality.</code>
+
+New functionality in the app and in the class now that I know what goes where.
+
+
+Jan 3 2014
+
+HAML
+
+I assume the developers are as much a fan of Star Wars as I am.
+
+HTML Element/ HAML equivalent
+<h1>...</h1>  %h1
+<div class="row">...</div>  .row
+<a href="index.html" target="_blank">...</a> %a{:href => "index.html", :target => "_blank"}
+<div data-target=".nav-collapse">...</div> %div{:data=>{:target=>".nav-collapse"}}
+
+% HTML element
+.class-name div with class
+#idname div with id
+- evaluate Ruby
+= evaluate and print
+
+
 Jan 3 2014
 
 Box-sizing is like packing items to ship.  It's possible to post that a shippable item is so many inches wide, but then when it's all packed up bam!  it won't fit in your mailbox anymore.  If it is of higher priority you can call box-sizing on it call it border-box and then it's the size of the shipping box that takes highest priority and your ordered item is going to get variably squished on its way to you.
