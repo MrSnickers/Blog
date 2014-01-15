@@ -1,3 +1,7 @@
+Jan 14 2014
+
+Working in a group is a step up in both power and complexity in the way that moving from Sinatra to Rails is an increase in both capability and confusion.
+
 Jan 6 2014
 
 Starting a Rails app is very similar to when I got my first apartment by myself and ended up inheriting two or three apartment's worth of stuff from the auntie network. There too it involved me going through a whole passel of stuff to find the four or five things that I would use every day.
@@ -10,63 +14,73 @@ Refactor Friday
 <p> I went back to refactor one of the earliest homework assignments that we were given at the Flatiron School, which is the Number Guesser. Although it was all on one page and the tests totally didn't pass, I wasn't too displeased with how it has aged. Hardly fine wine, but at least not compost either.
 
 I ended up with a very long commit history that I tried to make into the general outline of my blogpost.</p>
+<ul>
+<li><p><code>My terrible attempt at refactoring.</code>
 
-<code>My terrible attempt at refactoring.</code>
-<p>On my first and unpublished attempt I tried to fix everything at once. I got halfway through moving the model into a class and expanding much of the functionality before totally losing track of where I was. Seriously kids don't apply functionality without a test.
-My second and successful attempt used much more involved note taking and testing of each new feature.</p>
+On my first and unpublished attempt I tried to fix everything at once. I got halfway through moving the model into a class and expanding much of the functionality before totally losing track of where I was. Seriously kids don't apply functionality without a test.
+My second and successful attempt used much more involved note taking and testing of each new feature.</p></li>
 
-<code>rspec now running</code>
-<p>First I made sure that the original basic tests ran on the new model I had made.  Well, I mean first I made sure they didn't run, but that they later did, and anyways you know how it works.</p>
+<li><p><code>Rspec now running.</code>
 
-<code>moved rspec helper code into .rspec file.</code>
-<p>This was also a good opportunity for me to take the time to clear up some loose ends from over a month ago such as making a .rspec file and properly applying stubbing.</p>
+First I made sure that the original basic tests ran on the new model I had made.  Well, I mean first I made sure they didn't run, but that they later did, and anyways you know how it works.</p></li>
 
-<code>decided that all screen printing work belonged in app.</code>
-<p>My initial impulse was to move _every thing_ into the class.  Then I decided that with the extremly limited degree to which I could honor the concept of MVC in such a limited app that it was not the right move to have the class Numberguesser know anything about the screen.</p>
-<img src="http://www.peepresearch.org/surgery/materials.jpg">
-<p> This reminded me of the seperation of conjoined twins.</p>
 
-<code>moved input and standard comparison into class. Left reporting responsibilites in the app.
+<li><p><code>Moved rspec helper code into .rspec file.</code>
+This was also a good opportunity for me to take the time to clear up some loose ends from over a month ago such as making a .rspec file and properly applying stubbing.</p></li>
+
+<li><p><code>Decided that all screen printing work belonged in app.</code>
+My initial impulse was to move _every thing_ into the class.  Then I decided that with the extremly limited degree to which I could honor the concept of MVC in such a limited app that it was not the right move to have the class Numberguesser know anything about the screen.</p><br/>
+
+<p> This reminded me of the seperation of conjoined twins by the brave folks over at <a href="peepresearch.com"> peepresearch.com<a>.
+<img src="http://www.peepresearch.org/surgery/materials.jpg"></p></li>
+
+<li><p><code>Moved input and standard comparison into class. Left reporting responsibilites in the app.
 Added new syntax to app in order to obtain, evaluate, and report on guess.</code>
-<p>All these commits have to do with pulling apart the screen printing functionality from the knowing about number equivalency.</p>
+All these commits have to do with pulling apart the screen printing functionality from the knowing about number equivalency.</p></li>
 
-<code>Radically shortened check_guess by relying on Ruby's logic processing and returns.</code>
+<li><p><code>Radically shortened check_guess by relying on Ruby's logic processing and returns.</code>
 <p> This is my favorite trick this week of shortening a method that checks for equivalency</p>
-'''ruby
 
--        if @input == @standard
- -           true
- -      else
- -           false
- -      end
+This: <br/>
+    def check_for_equivalency <br/>
 
- @input == @standard
+    if @input == @standard<br/>
+      true<br/>
+    else<br>
+      false<br/>
+     end
+<br/>
+Becomes: <br/>
 
- '''
+  def equivalent?<br/>
+  @input == @standard
+<br/>
 
-<code>Had to unchain method calls as .guess returns a string.</code>
-Whaaaat?!  The "s" in gets means string.  ^%$#!!!
+</li>
+<li><p><code>Had to unchain method calls as .guess returns a string.</code>
+Whaaaat?!  The "s" in gets means string.  ^%$#!!!</p></li>
 
-<code>realized that gets converts input into string. Included to_i to counter that and a validity check to recognize post to_i strings.</code>
+<li><p><code>realized that gets converts input into string. Included to_i to counter that and a validity check to recognize post to_i strings.</code></p></li>
 
-<code>Changed method name to refelct true false response.</code>
+<li><p><code>Changed method name to refelct true false response.</code>
 One of the few teachable moments here.  Having explicit names that both indicate the work it does as well as the return it gives makes for friendlier code.
 
-Noticed that response was missing the interpolated value when I ran the program. Added it back in.
+Noticed that response was missing the interpolated value when I ran the program. Added it back in.</p></li>
 
-<code>Added tests to methods</code>
-MOAR TESTS!!!
+<li><p><code>Added tests to methods</code>
+MOAR TESTS!!!</p></li>
 
 
-<code>Got up to get a cup of tea. Thought of more features. Didn't yet decide if they were app or class features.</code>
-Proud of myself that I resisted dropping in three half-baked def's.  Wrote notes to myself that I wanted to get back to making these.
+<li><p><code>Got up to get a cup of tea. Thought of more features. Didn't yet decide if they were app or class features.</code>
+Proud of myself that I resisted dropping in three half-baked def's.  Wrote notes to myself that I wanted to get back to making these.</p></li>
 
-<code>Added loop to allow repeated guesses.
-can end the game with exit.</code>
+<li><p><code>Added loop to allow repeated guesses.
+can end the game with exit.</code></p></li>
 
-<code>added exit test and higher/lower functionality.</code>
+<li><p><code>Added exit test and higher/lower functionality.</code>
 
-New functionality in the app and in the class now that I know what goes where.
+New functionality in the app and in the class now that I know what goes where.</p></li>
+</ul>
 
 
 Jan 3 2014
