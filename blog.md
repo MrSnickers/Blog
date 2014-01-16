@@ -1,3 +1,7 @@
+Jan 16 2014
+
+Whiteboards are fantastic.  One great thing about working in a group is how quickly and easily good ideas come out.  Okay, slightly less than good ideas do too, but it's all part of the process of clearing the pipes.  It's a reminder that ideas are really cheap and that acting on those ideas are not.  Another benefit of working in a group is that it is hard to truck along with black boxes in your schema.  Unobserved, it is easy to go "something something API", but it's harder to try and get away with that when you have to keep lines of communication open with a team.
+
 Jan 14 2014
 
 Working in a group is a step up in both power and complexity in the way that moving from Sinatra to Rails is an increase in both capability and confusion.
