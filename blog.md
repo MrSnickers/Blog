@@ -1,3 +1,17 @@
+Jan 19 2014
+
+Ruby and Javascript have many simlarities as they are both loosly-typed scripted languages with object orientation.  They have a few differences however.
+Differences in values:
+In Ruby the only falsy values are 'nil' and 'false.'
+Javascript also has 'undefined' as well as 'null' and evaluates the boolean 'false', an empty string, and the number 0 as being falsy.
+Differences in variables:
+In Ruby, a variable can be declared without any kind of prefix or type definition.  Partially, this has to do with the fact that a variable's type is determined at runtime and thus does not need a strict delacration, but it is also because the scope of a variable is always block level unless it is very specifically declared otherwise.
+In Javascript variables have the prefix 'var' and are constrained to the function level.
+Differences in scope:
+Ruby has five levels of scope, local, instance, class, global, and constants.  Anything other than a local variable has a special prefix character or (such as @ for a instance variable or $ for a global variable) and mostly need to be declared in a particular place in the program, often the class definition.
+Javascript is a prototype based object oritented language and as such does not have class definitions.  Therefore it has fewer levels of scope. Variables without 'var' before the declaration is by default a global one.
+
+
 Jan 16 2014
 
 Whiteboards are fantastic.  One great thing about working in a group is how quickly and easily good ideas come out.  Okay, slightly less than good ideas do too, but it's all part of the process of clearing the pipes.  It's a reminder that ideas are really cheap and that acting on those ideas are not.  Another benefit of working in a group is that it is hard to truck along with black boxes in your schema.  Unobserved, it is easy to go "something something API", but it's harder to try and get away with that when you have to keep lines of communication open with a team.
