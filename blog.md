@@ -1,3 +1,10 @@
+Jan 20 2014
+
+JavaScript functions can be either named through a formal declaration or simply by naming them. JS is also well known for having unnamed "anonymous" functions that are constructed at the time of use, as functions are first class objects in JS. A typical call to an anonymous function starts with "function" and a set of parens that take the function's parameters. Often this will be empty, but it is important in JS to have them anyways, unlike in Ruby where they are optional.  In Ruby it is uncommon to use parens around parameters with the methods print or puts and when they do not take parameters such as with the method reverse they are completely invisible.
+In JS it is possible, and not at all uncommon, for a parameter to be a function. This is very evidently the case in the Jasmine testing framework where many functions are nested and functions that are parameters take other functions as their own parameters.
+After the parameter assignment come a set of braces that contain the statements that comprise the body of the function. After every statement there is a semicolon and after the curly braces there are not.
+
+
 Jan 19 2014
 
 Ruby and Javascript have many simlarities as they are both loosly-typed scripted languages with object orientation.  They have a few differences however.
