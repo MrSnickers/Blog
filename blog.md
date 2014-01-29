@@ -1,3 +1,102 @@
+Jan 28 2014
+
+I miss the Ruby method .each so very, very much.
+
+I've been refactoring many of my old Ruby todos (one thing I learned is that adorably younger me took a LITTERALLY arbitrary approach to spacing. Want two spaces, four spaces, THREE spaces, a tab? Sure, why not! Don't bother me with this formatting minutia, I'm crushing code here!), and recently I've been converting the same todos into JavaScript. 'cause you know, why not. Turns out that there is a "why not" and it is the fact that the lack of a direct .each replacement in JavaScript is actually making me depressed. I even pop open old code just to see its friendly little vowel-filled face sitting above its securely fenced code block, like looking at old photos after a breakup.
+
+This is the todo that made me lose my mind:
+
+
+<pre>##Write a function so that test = ['cat', 'dog', 'fish', 'fish']
+##count(test) #=&gt; { 'cat' =&gt; 1, 'dog' =&gt; 1, 'fish' =&gt; 2 })
+
+def count(array)
+  unique_array = array.uniq
+  return_hash = {}
+  unique_array.each do |item|
+    return_hash[item] = array.select{|repeat| repeat == item }.length
+  end
+  return_hash
+end
+</pre>
+This, by the way is not at all the least processor intensive way to solve this, but because Ruby comes packaged with so many useful named modules it is at least short.  This solution relies on a lot of subtle flavors of iteration, which made my attempt at implementing it in JavaScript balloon distressingly before I realized that I don't know how to do nuanced iteration in JavaScript AT ALL:
+
+
+<pre>function count(array){
+  var returnValue = {};
+  var givenArray = array;
+  var allKeys = unique(givenArray);
+  function unique(array){
+    var uniqueArray = [];
+    for(i=0; i &lt; array.length; i++){
+      standard = array[i];
+      if (!uniqueArray.some(element != standard){
+        uniqueArray.concat(standard);
+      }
+    }
+    return uniqueArray;}
+  for(i=0; i &lt; allKeys.length; i++){
+    returnValue[allKeys[i]] = givenArray.map{}.length;
+  }
+
+
+};</pre>
+
+The thing is that a lot of the methods that I am used to in Ruby come along in the Module of Enumerable and so are implemented consistently across the different classes.  JavaScript does not have the same consistent application of methods across classes.  Partially, this is due to the greater degree of functional style in JavaScript.  It is more object oriented to have methods assigned to different classes and to only manipulate data through these pre-approved channels.  JavaScript does have a small vocabulary of methods that do iteration, largely methods in the Array class such as .every, .filter, .forEach,  .map, and .some.  The documentation could never be accused of being user friendly so I'm going to give one small but practical example of how to use a prepackaged Array method without using the term "this," "callback," or amusingly "thisp."
+Let's say you want to step through an array and make each item an attribute in an object.
+You can start by writing what would be your block in Ruby as the body of a function that you want executed on each element.
+<pre>
+    if(!containerObject[item]){
+      containerObject[item] = 1 ;
+    }
+    else{
+      containerObject[item]++;
+    };
+</pre>
+Now if you break out your MDN network decoder ring that you got from the bottom of one of many cans of coffee you were drinking while reading documentation late at night you will discover that Array.forEach is the best method for executing a function on each element of an array and that the parameters piped from .forEach to the function that it executes are, in this order:
+<ul>
+<li>the element value</li>
+<li>the element index</li>
+<li>the array itself</li>
+</ul>
+
+so now your attempt at a block can be wrapped in proper JavaScript like so:
+<pre>
+  containerObject = {};
+  function addToContainer(item, index, array) {
+    if(!containerObject[item]){
+      containerObject[item] = 1 ;
+    }
+    else{
+    containerObject[item]++;
+  };
+}
+</pre>
+If you feel that it is untidy naming parameters that your function doesn't use, you can leave out the unused "index," and "array" as JavaScript will just dump any extra parameters that it is given.
+Now you can call your function by name as an argument to Array.forEach, letting it know what it should be doing for each item in this array.
+
+<pre>
+  var containerObject = {};
+  function addToContainer(item) {
+    if(!containerObject[item]){
+      containerObject[item] = 1 ;
+    }
+    else{
+      containerObject[item]++;
+    };
+  }
+
+  ["fish", "cat", "fish"].forEach(addToContainer);
+  containerObject;
+</pre>
+
+This is why Arrays are great.  But now lets say you just have to work with the attributes of an object.  In Ruby, Hashes include the module Enumerable so you can call .each on them.  This is not true of JavaScript objects.  The methods provided by the Object class are sparser as the functional style of JavaScript suggests that instead of using prewritten and preapproved class methods on objects that custom functions are written and invoked with the object as the parameter.
+This is best achieved with a plain vanilla "for" loop.  JavaScript has multiple flavors of "for" loops although most of them are not recommended.  There is "for each..in" which I was originally excited about as it seemed like a possible .each replacement, but it has been deprecated right after being introduced, like Cristal Pepsi.
+The similar sounding "for .. in" is 
+
+
+
+
 Jan 20 2014
 
 JavaScript functions can be either named through a formal declaration or simply by naming them. JS is also well known for having unnamed "anonymous" functions that are constructed at the time of use, as functions are first class objects in JS. A typical call to an anonymous function starts with "function" and a set of parens that take the function's parameters. Often this will be empty, but it is important in JS to have them anyways, unlike in Ruby where they are optional.  In Ruby it is uncommon to use parens around parameters with the methods print or puts and when they do not take parameters such as with the method reverse they are completely invisible.
