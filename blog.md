@@ -1,3 +1,56 @@
+Feb 23 2014
+
+for item in *; do file $item; done | grep "Adaptive" > tmp
+for item in `awk -F : '{print $1}' tmp`; do cp $item ../mp3/$item.amr;done
+
+Feb 17 2014
+
+Our current project is in conjunction with the NYPL concerning the transcription of digital archives.  Due to the fact the particular resource we are working with is typeset we will be making use of OCR, Optical Character Recognition, on these digital images in order to assist the transcriptionist.
+A bitmap image such as .png, .jpg, or .tiff is just information about the color of pixels in the image, and it takes some interesting programing to get an understanding what the pixels in an image means.
+The two basic types of OCR processing are Matrix Matching and Feature Extraction.  Matrix Matching has a lower computational cost and works best with reproducible typefaces.  A phone bill could be scanned quickly and well with a Matrix Matching engine.  The computer metaphorically overlays a stencil of a letter on a grouping of pixels and records the letter with the closest match.  Feature Extraction works much more like the human visual system and searches for, well, features.  It looks for edges, monochrome fields, line intersections and other such topography.  Feature Extraction is more versatile than Matrix Matching for unusual typefaces, different sizes of the same type, or uneven backgrounds.
+
+For this project we will be using Tesseract, an OCR engine developed by HP and made open source in 2005.  It is a feature detecting engine with a couple of optimization options.  Before embedding a language specific hidden Markov Model or training a convolutional neural network with an evolutionary optimization algorithm such as Particle Swarm Optimization there are some more basic steps you can take to improve your OCR results.
+<ul>
+  <li>First use a good resolution copy.  300dpi is about the minimum requirement to ride the ride.  Grey-scale or color is better than black and white.</li>
+  <li>Tesseract does a lot of background and contrast adjustments itself so trying to anticipate what it wants is not very likely to to help much.</li>
+  <li>If the background of the image is known to be unevenly aged, setting the background adjustments to "tile" local adjustments may work better than averaging across the entire image.</li>
+  <li>Tesseract has different language files, so be sure to use the one appropriate to your particular document.  This will be important for Tesseract to anticipate what characters it might come across.</li>
+  <li>It is possible to train Tesseract on a particular font by correcting and saving a early attempts at OCR.  A good tutorial is located <a href=http://pp19dd.com/2010/09/tesseract-ocr-boxfile-ajax-editor/>here</a></li>
+</ul>
+
+
+Jan 30 2014
+
+Continuing iteration in JavaScript
+Because JavaScript has a functional flavor, it is not really intended that methods be used for all the heavy lifting in a program.  It is more keeping with the style to echew prepackaged methods that are owned by a class in favor of having the program itself have control structures that take your object of interest as an argument. For example this is an old Ruby todo where we looked for anagrams:
+<pre>
+var arrayOfInterest = ["peas", "carrots", "beets", "Elvis"]
+var knownAnagram = ["lives"]
+
+var findAnagram = function findAnagram(knownAnagram, arrayOfInterest){
+  knownAnagram.sort();
+  sortedArray = arrayOfInterest.forEach(sort); #=> note the lack of parens after sort here.
+  var returnArray = [];
+  for (i=0; i &lt sortedArray.length; i++){
+    if (sortedArray[i].downcase === knownAnagram.downcase){
+      returnArray.push(arrayOfInterest[i]);
+    }
+  }
+  return returnArray;
+  };
+};
+</pre>
+
+Jan 29 2014
+
+I think of JavaScript functions like a vending machine.
+
+<pre>function doSomething(){}</pre>
+
+The parens look like a coin slot to me.  Put in parameters and something comes out.
+I guess that makes empty parens the equivalent of shaking the machine.
+
+
 Jan 28 2014
 
 I miss the Ruby method .each so very, very much.
@@ -62,7 +115,7 @@ Now if you break out your MDN network decoder ring that you got from the bottom 
 
 so now your attempt at a block can be wrapped in proper JavaScript like so:
 <pre>
-  containerObject = {};
+  var containerObject = {};
   function addToContainer(item, index, array) {
     if(!containerObject[item]){
       containerObject[item] = 1 ;
@@ -91,10 +144,7 @@ Now you can call your function by name as an argument to Array.forEach, letting 
 </pre>
 
 This is why Arrays are great.  But now lets say you just have to work with the attributes of an object.  In Ruby, Hashes include the module Enumerable so you can call .each on them.  This is not true of JavaScript objects.  The methods provided by the Object class are sparser as the functional style of JavaScript suggests that instead of using prewritten and preapproved class methods on objects that custom functions are written and invoked with the object as the parameter.
-This is best achieved with a plain vanilla "for" loop.  JavaScript has multiple flavors of "for" loops although most of them are not recommended.  There is "for each..in" which I was originally excited about as it seemed like a possible .each replacement, but it has been deprecated right after being introduced, like Cristal Pepsi.
-The similar sounding "for .. in" is 
-
-
+This is best achieved with a plain vanilla "for" loop.  JavaScript has multiple flavors of "for" loops although most of them are not recommended.  There is "for each..in" which I was originally excited about as it seemed like a possible .each replacement, but it has been deprecated right after being introduced, like Crystal Pepsi.
 
 
 Jan 20 2014
