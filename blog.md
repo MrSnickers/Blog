@@ -1,5 +1,27 @@
 Feb 23 2014
 
+Sometimes you need to get a voicemail message off of your iPhone.  Maybe it's because you want to make a slide show at your wedding featuring the first message leading up to your first date, or your kids' message is too cute to not be your ring tone, or it's the last message left to you from a loved one. and maybe you don't want to download potentially sketchy third party software on your laptop.
+Apple doesn't make this easy for you, it's not really their philosophy to let you just get in there like that, but it is possible to recover these messages with the power of the command-line.
+First back up the phone to the computer without encrypting it.  Apple does a good job of scrambling up the names anyhow so you don't need to make the job any harder on yourself.
+Then navigate to the directory where the files are backed up with the command:
+cd ~/Library/Application\ Support/MobileSync/Backup
+enter
+ls -la
+and there will be some super long numbers.
+Although it doesn't look like it this is a folder and it holds all the data taken off your phone.  It has your voicemails, but it has everything else too, so opening each file at a time and looking isn't a winning strategy.  The safest thing to do right now is to make a backup file somewhere convenient.  I like to keep temporary folders on my desktop.
+enter:
+cp -a ~/Library/Application\ Support/MobileSync/Backup/<folder number here*> ~/Desktop/temp
+The terminal will suggest paths if you type a few characters and hit the tab key.  This can help a lot with the folder name.
+
+
+We need to change directory into the one with the most recent date so enter "cd" for "change directory" and the first couple of digits of this long number.  You can then hit the tab key and it will autocomplete the rest of it.  Slick!
+Now that you have changed directory into the back up use ls -la again.
+
+Now even more number without file extensions, but these are files even if they have bewildering names like "ff06279a81939221d4f6e2bf79e144b4f116a47a."  This is where we're gonna do some command-line magic!
+
+
+
+
 for item in *; do file $item; done | grep "Adaptive" > tmp
 for item in `awk -F : '{print $1}' tmp`; do cp $item ../mp3/$item.amr;done
 
