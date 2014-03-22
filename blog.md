@@ -491,11 +491,13 @@ even though they will print the same output.
 
 3.times is often used as an example of how writing ruby is like talking to your new best friend, and is a little bit of hyperbole picked up from the remarkable work "why's poignant guide to ruby."  However, there is very little heavy lifting that is going to be accomplished with this picturesque little construct.  A more direct equivalent to the previous JavaScript block is the Ruby block:
 
-    x =1
-    while x<4
+<pre>
+  x = 1
+  while x < 4
     (x+1)*5
     x += 1
-    end
+  end
+</pre>
 
 as both blocks can be modified in the same important ways that make them common features in practical code.
 
@@ -507,44 +509,46 @@ November 14 2013
 The approach that I took to solving FizzBuzz was to base it on a "while" loop and to assess the remainder of each increment when divided by 3, 5, and both 3 and 5.  This required three checks and three "puts" statements, and was pretty straight forward if not all that clever.
 
 The solution looked like this:
-
-      i=0
-      while i <= 100
-        if i%3 == 0 && i%5 == 0
-          puts "fizzbuzz"
-          i +=1
-      elsif i%3 == 0
-          puts "fizz"
-          i +=1
-      elsif i%5 == 0
-          puts "buzz"
-          i +=1
-        else
-          puts "#{i}"
-          i +=1
-        end
-      end 
+<pre>
+  i=0
+  while i <= 100
+    if i%3 == 0 && i%5 == 0
+      puts "fizzbuzz"
+      i +=1
+  elsif i%3 == 0
+      puts "fizz"
+      i +=1
+  elsif i%5 == 0
+      puts "buzz"
+      i +=1
+    else
+      puts "#{i}"
+      i +=1
+    end
+  end
+</pre>
 
 The online alternative I liked the most made use of shoveling into an array to create the word FizzBuzz.  By conjoining the output of divisibility by 3 and divisibility by 5 "FizzBuzz" was not treated as a seperate word, and I found that interesting. 
 
-    def fizz_buzz(max)
-      arr = []
-      (1..max).each do |n|
-        text = ""
-        if (n % 3 == 0)
-          text << "Fizz"
-        end
-        if (n % 5 == 0)
-          text << "Buzz"
-        end
-        if !((n % 3 == 0) || (n % 5 == 0))
-          text = n
-        end
-        arr << text
+<pre>
+  def fizz_buzz(max)
+    arr = []
+    (1..max).each do |n|
+      text = ""
+      if (n % 3 == 0)
+        text << "Fizz"
       end
-      return arr
-    end 
-
+      if (n % 5 == 0)
+        text << "Buzz"
+      end
+      if !((n % 3 == 0) || (n % 5 == 0))
+        text = n
+      end
+      arr << text
+    end
+    return arr
+  end
+</pre>
 
 
 November 12 2013
@@ -621,9 +625,11 @@ October 23 2013
 
 Talking about blocks pretty quickly turned into talking about the ".each" method as that has been a particular stumbling block for some of the students.  Or at least I know this one.  A well formed use of ".each" looks like:
 
-object.each do |element|
-_block of code that does something with "element"_
-end
+<pre>
+  object.each do |element|
+    block of code that does something with "element"
+  end
+</pre>
 
 The whole conversation about what "element" is and why it doesn't need to be declared like other variables ended up taking us on a tour of how all the parts work behind the scenes.
 
