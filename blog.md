@@ -353,13 +353,13 @@ A sub-standard SQL database
 
 Let's say you are an overly enthusiastic aunt or uncle to some kids and that you are perhaps concerned that you might not be distributing gifts equitably so you whip up a spreadsheet.  It might look something like this:
 
-name    |Gifts
+name   | Gifts
 ----------------------------------------------------------------------
 Billie | Lego, Beanbag chair (blue), those clear plastic tubes for hamsters
 ----------------------------------------------------------------------
-Suzy  | ride-atop-triceratops, cheese-making kit, Lego, Viking helmet
+Suzy   | ride-atop-triceratops, cheese-making kit, Lego, Viking helmet
 ----------------------------------------------------------------------
-Timmy | Gender-neutral Veterinarian playset, Lego, Beanbag chair (green)
+Timmy  | Gender-neutral Veterinarian playset, Lego, Beanbag chair (green)
 ----------------------------------------------------------------------
 
 For a quick trip to the store this might suffice, but if you are overly invested in your avuncular duties and need to maintain this list from before Halloween until the big day it's not very maintainable.
@@ -378,9 +378,9 @@ child_id | child
 
 with the gifts in their own list related to child:
 
-gift_id | gift    | cost  | child_id
-------------------------------------
-1        | cheese making kit | 25  |2
+gift_id | gift              | cost  | child_id
+----------------------------------------------
+1       | cheese making kit | 25    |2
 
 etc.
 
@@ -467,7 +467,6 @@ Developers, even junior developers, get paid a lot so providing documentation th
 
 November 18 2013
 
-
 Variables in a block are like fish in a fishbowl.
 
 I made some ascii art to demonstrate this, but it got warped beyond recognition by Github.
@@ -476,20 +475,21 @@ I made some ascii art to demonstrate this, but it got warped beyond recognition 
 November 17 2013
 
 There seems to be some logical fallacies comparing iteration in ruby structured as:
-
-    3.times do |x|
-    (x+1)*5
-    end
-
+<pre>
+3.times do |x|
+  (x+1)*5
+end
+</pre>
 with the alleged JavaScript equivalent:
 
-    for (var i = 1, i < 4, i++) {
-    console.log( (i+1)*5);
-    }
+<pre>
+for (var i = 1, i < 4, i++) {
+  console.log( (i+1)*5);
+}</pre>
 
 even though they will print the same output.
 
-3.times is often used as an example of how writing ruby is like talking to your new best friend, and is a little bit of hyperbole picked up from the remarkable work "why's poignant guide to ruby."  However, there is very little heavy lifting that is going to be accomplished with this picturesque little construct.  A more direct equivalent to the previous JavaScript block is the Ruby block:
+<pre>3.times</pre> is often used as an example of how writing Ruby is like talking to your new best friend, and is a little bit of hyperbole picked up from the remarkable work "why's poignant guide to ruby."  However, there is very little heavy lifting that is going to be accomplished with this picturesque little construct.  A more direct equivalent to the previous JavaScript block is the Ruby block:
 
 <pre>
   x = 1
