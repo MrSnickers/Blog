@@ -1,3 +1,70 @@
+March 25 2014
+
+I'm talking today at Hack and Tell about the parser I wrote to convert the NYC Restaurant Inspection results into a useful and hostable JSON file.
+New York City has a very progressive policy of publicly making available all data that is acquired with taxpayer money.  They have some great and easy to use stuff up there like hosted JSON of all the greenspaces in the city that would make a very nice dynamic map.
+What is not so nice is the Restaurant Inspection data provided by the Department of Health and Mental Hygiene.  It is only available as a download of a nearly 1 Gigabyte plain text file.  It's supposedly in a CSV format, but according to complaints on the boards it can't be opened properly as there are commas and double quotes in titles which disrupts the format.  I wanted it in JSON anyhow.
+
+This is what a bit of it looks like:
+
+"CAMIS","DBA","BORO","BUILDING","STREET","ZIPCODE","PHONE","CUISINECODE","INSPDATE","ACTION","VIOLCODE","SCORE","CURRENTGRADE","GRADEDATE","RECORDDATE"
+"40280083","INTERCONTINENTAL THE BARCLAY","1","111       ","EAST   48 STREET                                                                                    ","10017","2129063134","03","2014-02-07 00:00:00","D","10F","4","A","2014-02-07 00:00:00","2014-03-20 06:01:11.660000000"
+"40356483","WILKEN'S FINE FOOD","3","7114","AVENUE U","11234","7184443838","27","2014-01-14 00:00:00","D","10F","10","A","2014-01-14 00:00:00","2014-03-20 06:01:11.660000000"
+"40362869","SHASHEMENE INT'L RESTAURA","3","195","EAST   56 STREET","11203","3474300871","17","2013-05-08 00:00:00","D","10B","7","A","2013-05-08 00:00:00","2014-03-20 06:01:11.660000000"
+"50008280","WILD ORCHID BAR & LOUNGE INC.","4","111-48    ","LEFFERTS BOULEVARD                                                                                  ","11420","3479609997","99","1900-01-01 00:00:00","","","","","","2014-03-20 06:01:19.813000000"
+"50008281","Arcade Bakery","1","220       ","CHURCH STREET                                                                                       ","10013","3472765061","99","1900-01-01 00:00:00","","","","","","2014-03-20 06:01:19.813000000"
+"50008282","Coffee 11238 Ltd.","3","995A      ","FULTON STREET                                                                                       ","11238","7186831583","99","1900-01-01 00:00:00","","","","","","2014-03-20 06:01:19.813000000"
+"50008285","Uncle Benny's Pizza","1","1811","1 AVENUE","10128","2012812553","99","1900-01-01 00:00:00","","","","","","2014-03-20 06:01:19.813000000"
+"50008286","Espinal Restaurant","3","1039","BELMONT AVENUE","11208","7188275230","99","1900-01-01 00:00:00","","","","","","2014-03-20 06:01:19.813000000"
+"81642687","FAMOUS RAY'S RESTAURANT CORP.","1","582","WEST  207 STREET","10034","8624525735","99","1900-01-01 00:00:00","","","","","","2014-03-20 06:01:19.813000000"
+
+You may notice the fanciful use of white space and capslock.
+
+My first idea was to take each line, which is a restaurant, and split it into an array of data elements.  I knew from the column headings which data elements I wanted and planned to populate a temporary array with the desired elements.  Then I would run that in parallel with my known column headings to make a temporary hash for each restaurant that then can be made into a JSON object.
+
+<pre>
+  desired_data = [1, 3, 4, 5, 7, 8, 10, 12]
+  column_names = [:name, :street_address, :zip, :cuisine, :inspection_date, :violation, :current_grade]
+
+  ##stuff happens here
+
+  temp_array.each_with_index {|item, index| temp_hash[column_names[index]] = item}
+</pre>
+
+I wanted to do as little stuff as possible though, as there are over 53,000 records to process, many of which are out of date or incomplete.  I wrote in logic to have a completeness flag that would flip if any of my required data elements were missing so that I could exit the loop, not save that record, and move on as quickly as possible.
+
+<pre>
+  element_array.each_with_index do |data_element, index|
+    is_complete = false if (data_element == "" && index != 10)
+    ## processing code
+
+    temp_array << data_element unless index == 4
+    end
+  formatted_array << temp_hash if is_complete
+</pre>
+
+But this is where things really started to balloon.  I thought I'd be able to just shovel items from the restaurant array into one half of the hash zipper right away, but more and more things needed processing.  Dates had to be checked to be sure they were current, codes were converted to human readable text, and the crazy caps lock situation on names was resolved with a specific method.
+
+<pre>
+  def namify(element)
+    element.split(" ").each{|word| word.capitalize!}.join(' ')
+  end
+</pre>
+
+It became evident that nearly everything needed to be processed so I had to consider if it would be more efficient to remove the iteration and select items to go into the hash directly.
+For this version, I pulled all the data processing logic into its own method that contained many ternary statements that returned from the method if data was missing.
+
+<pre>
+  ## stuff before ..
+  element_array[1] ? temp_hash[:name] = namify(element_array[1]) : return
+  ## further processing
+</pre>
+
+I wanted to know what the difference in potential optimization was between the two approaches.  I couldn't use the "time" command for benchmarking in the Rails console, so I created a Time.now object at the beginning of the parser and another at the end.  Subtracting the two gives me the total time required to run the parser in seconds so I didn't need to sit there with a stop watch and could read Zooborns.com instead.
+
+Surprisingly the old style parser was consistently, if only slightly, faster than the new version implying that removing iteration did not give me the hoped for optimization as I had traded it for more searching.
+
+
+
 Feb 23 2014
 
 Sometimes you need to get a voicemail message off of your iPhone.  Maybe it's because you want to make a slide show at your wedding featuring the first message leading up to your first date, or your kids' message is too cute to not be your ring tone, or it's the last message left to you from a loved one. and maybe you don't want to download potentially sketchy third party software on your laptop.
