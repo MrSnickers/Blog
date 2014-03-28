@@ -1,3 +1,4 @@
+
 March 25 2014
 
 I'm talking today at Hack and Tell about the parser I wrote to convert the NYC Restaurant Inspection results into a useful and hostable JSON file.
@@ -63,7 +64,16 @@ I wanted to know what the difference in potential optimization was between the t
 
 Surprisingly the old style parser was consistently, if only slightly, faster than the new version implying that removing iteration did not give me the hoped for optimization as I had traded it for more searching.
 
+March 24 2014
 
+I've been working a lot on Project Euler problems.  I try and push code to Github every day, and these little code snacks have been really fun to do between larger projects.
+What I enjoy a lot about the Project Euler questions is that you can pretty much always get some kind of naive answer and the real satisfaction of the project is to optimize it all Ugly-Duckling style until it is faster, shorter, and much more snappy.
+
+Many of the problems hinge on REALLY big numbers to make it challenging.  Since it's super boring to sit and watching your terminal grind while it calculates prime factors or what not, benchmarking is important in optimization and the Unix time command is a sweet way of knowing how much processing you have whittled off of your solution.  All you have to do is preface your Ruby execution command with "time" like so:
+
+> time ruby problem3.rb
+
+While writing my restaurant data scraper I wanted to benchmark my optimizations but "time" doesn't work in the Rails console.  My work around for that was to make a named Time.now object a the beginning of the parser and a second one at the end.  Then subtracting the two gave me the time in seconds that my parser ran.
 
 Feb 23 2014
 
