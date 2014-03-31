@@ -1,3 +1,97 @@
+March 31 2014
+
+Complexity is a problem I've been thinking about a lot lately, since I've been doing quite a few of the project Euler problems and the prize there is to optimize the solution so that your CPU doesn't double as an electric blanket.  Anyways it's getting just too darn warm for that.
+
+Complexity, in a nutshell, is about how quickly the requirements to find a solution scale in relationship to the problem.  For example, the difficulty of assigning two variables is just twice as demanding as assigning just one, so it's not a very complex task.  In contrast, the complexity of nested iteration, such as finding multiple pairs of numbers from a set that interact with each other in a certain way, expands as a square.  Every additional cycle of the external iteration requires a whole series of nested cycles.
+
+
+I've been thinking about this a lot, because the optimization of many of the Project Euler problems involves reducing the complexity of the approach.
+
+This is a more concrete wording of a problem involving large numbers.  I solved it two ways once quite naively and once with reduced complexity.
+
+The question is locate the optimal time in one recorded day to purchase and then sell a single stock, when the stock value is saved in an array every minute after midnight.
+
+My first solution to find the optimal times of purchase and sale had a wheel within a wheel system.  The stock could only be sold after it was purchased (I assumed one minute of latency), so as I progressed through the day to analyze the potential purchase times, I had to compare that with all available times a sale could be made.  The best optimization I could do was to only analyze times of sale that came after the purchase, but that just cuts the processing by half.
+
+Note that this program will not recommend a purchase or sale time on days in which the stock only declined.
+
+
+class ProfitFinder
+attr_accessor :purchase_time, :sale_time, :best_profit
+
+  PRICES = []
+
+  def initialize
+    @best_profit = 0
+    @purchase_time
+    @sale_time
+    scan
+  end
+
+  def scan
+    purchase_index = 0
+    while purchase_index < PRICES.length
+      purchase_price = PRICES[purchase_index]
+      sale_index = purchase_index + 1
+      while sale_index < PRICES.length
+        sale_price = PRICES[sale_index]
+        if sale_price - purchase_price > best_profit
+          best_profit = sale_price - purchase_price
+          purchase_time = purchase_index
+          sale_time = sale_index
+        end
+      end
+      purchase_index += 1
+  end
+
+end
+
+
+To reduce the complexity however, I can remove that wheel inside the other wheel.  Here I have chosen to pre-process information about optimal times of sale and to save it in a separate array that encodes the best future price the stock can be sold at at any given time and when that sale should take place.  Now as the program progresses through the day, each comparison is with only one element in the parallel array.
+
+
+class ProfitFinder
+attr_accessor :purchase_time, :sale_time, :best_profit
+
+  PURCHASE_PRICE = []
+  BEST_FUTURE_SALE = []
+
+  def initialize
+    @best_profit = 0
+    @purchase_time
+    @sale_time
+    populate_sale_array
+    scan
+  end
+
+  def populate_sale_array
+    temp_array = PURCHASE_PRICE.reverse
+    last_best = [PURCHASE_PRICE[-1], PURCHASE_PRICE.length - 1]
+    temp_array.each_with_index do |value, index|
+      if value > last_best[0]
+        last_best[0] = value
+        last_best[1] = index
+      end
+      BEST_FUTURE_SALE << last_best
+    end
+    BEST_FUTURE_SALE.reverse!
+  end
+
+
+  def scan
+    PRICES.each_with_index do |purchase_price, index|
+      profit = BEST_FUTURE_SALE[index][0] - purchase_price
+      if profit > best_profit
+        best_profit = profit
+        purchase_time = index
+        sale_time = BEST_FUTURE_SALE[index][1]
+      end
+    end
+  end
+
+end
+
+
 March 30 2014
 
 Happy World Back Up Day Eve!  I was trying to back up the photos I had taken on my iPhone onto an external hard-drive.  The problem is that I relied on iPhoto to do it and the external hard drive is formatted for a Windows machine.  iPhoto is a bit of a roach motel for photos and once they were in there they were segregated in over 200 different files in a Byzantine file structure.  However Unix can save the day!
