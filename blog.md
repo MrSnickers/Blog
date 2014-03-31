@@ -1,3 +1,11 @@
+March 30 2014
+
+Happy World Back Up Day Eve!  I was trying to back up the photos I had taken on my iPhone onto an external hard-drive.  The problem is that I relied on iPhoto to do it and the external hard drive is formatted for a Windows machine.  iPhoto is a bit of a roach motel for photos and once they were in there they were segregated in over 200 different files in a Byzantine file structure.  However Unix can save the day!
+
+After changing directory into the root of the iPhoto library it is possible to use a find command for all items of type file and to execute the command copy and send them to a folder on the desktop like so:
+
+find . -type f -exec cp {} /Users/Sterling/Desktop/Photos \;
+
 
 March 25 2014
 
